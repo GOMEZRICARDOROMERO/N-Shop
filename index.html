@@ -13,6 +13,10 @@
     <link rel="shortcut icon" href="static/resources/favicon-32x32.png" type="image/x-icon">
     <!-- Favicon -->
     
+    <!-- bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- bootstrap -->
+    
     <!-- Css -->
     <link rel="stylesheet" href="static/css/styles.css">
     <!-- Css -->
@@ -23,30 +27,82 @@
 </head>
 
 <body> 
-
-<!-- HEADER -->
-    <header> 
-        <nav>
-		<!-- toda la barra de navegacion aqui -->
-        </nav>
-    </header> 
-<!-- HEADER -->
-
-<!-- MAIN -->
-    <main>
-        <section> <!-- el main se divide en sections -->
-            <article>
-                <!-- el section se divide en article -->
-            </article>            
-        </section>
-    </main> 
-<!-- MAIN -->
+    <div class="contenedor">
+        <!-- HEADER -->
+        <header> 
+            <nav class="header__nav">
+                <a href="#">
+                    <div class="nav__logo--cuadro nav__logo--img"></div>
+                    <p class="nav__logo--p">N-SHOP</p>
+                </a>
+                <ul class="nav__links">
+                    <li>
+                        <a  href="#">Home</a>
+                    </li>
+                    <li>
+                        <a  href="static/pages/accesorios.html">Accesorios</a>
+                    </li>
+                    <li>
+                        <a  href="#">Juegos</a>
+                    </li>
+                    <li>
+                        <a  href="#">Contacto</a>
+                    </li>
+                </ul>
+            </nav>
+        </header> 
+        <!-- HEADER -->
+        
+        <!-- MAIN -->
+        <main>
+            <section class="main__titulo"> <!-- el main se divide en sections -->
+                <h1>Tienda online de Articulos de Nintendo </h1>         
+            </section>
+            <section class="bootstrap__carrousel"> <!-- section bootstrap -->
+                <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://zizihub.com/c1e034.png" class="d-block w-100 bootstrap__img" alt="breath_of_the_wild">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://zizihub.com/8d255.jpg" class="d-block w-100 bootstrap__img" alt="majoras_mask">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://zizihub.com/26f346.jpg" class="d-block w-100 bootstrap__img" alt="skyward_sword">
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon bootstrap__arrow" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                        <span class="carousel-control-next-icon bootstrap__arrow" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </section>
+        </main> 
+        <!-- MAIN -->
+    </div>
 
 <!-- FOOTER -->
-    <footer> 
-		<!-- aqui todo el footer -->
-    </footer> 
+<footer> 
+    <!-- bootstrap -->
+    <div class="d-flex align-items-center justify-content-center footer__bootstrap">
+        <p class="footer__p--bootstrap ">Todos los derechos reservados 2022</p>
+    </div>
+    <!-- bootstrap -->
+</footer> 
 <!-- FOOTER -->
+
+<!-- javascrip bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+<!-- javascrip bootstrap -->
 
 </body>
 </html>

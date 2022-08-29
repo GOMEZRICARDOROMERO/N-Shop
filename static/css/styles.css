@@ -1,0 +1,176 @@
+/* reseteo de css para elimiar los bordes */
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box; /* con esta propiedad hago que las cajas conserven su tamaño si se les da un padding o border */
+}
+
+/* -------------CONTENEDOR------------- */
+.contenedor{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/* -------------CONTENEDOR------------- */
+
+/* ------------------NAV--------------- */
+.header__nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: red;
+    width: 200px; /* ancho temporal */
+    height: 800px; /* alto temporal */
+    position: sticky;
+}
+
+a{
+    text-decoration: none; /* retiro el estilo del link */
+}
+
+.nav__logo--cuadro{/* cuandro donde ira la imagen */
+    width: 180px;
+    height: 200px;
+    margin-top: 10px; /* separo 10px del top */
+}
+
+.nav__logo--img{ /* imagen que va dentro del cuadro */
+    background-image: url("https://zizihub.com/d62580.jpg"); /* imagen temporal */
+    background-repeat: no-repeat; /* hace que la imagen no se repita */
+    background-size: 100% 100%; /* estira la imagen 100% al tamaño del cuadro */
+}
+
+.nav__logo--p{ /* texto del logo */
+    color: white;
+    font-size: 40px; /* tamaño de la letra */
+    text-align: center;
+    margin-top: 5%;
+}
+
+.nav__links{
+    padding: 0;
+    margin-top: 20%;
+    background-color: yellow;
+}
+
+.nav__links a{
+    color: white;
+    font-size: larger;
+}
+
+li{
+    list-style: none; /* retiro la decoracion de las listas */
+    margin: 20% 0% 20% 0%;
+    text-align: center;
+}
+
+/* ------------------NAV--------------- */
+
+/* -----------------MAIN--------------- */
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 800px;
+    background-color: blue;
+}
+
+.main__titulo{
+    text-align: center;
+    margin-top: 2%;
+}
+
+.bootstrap__carrousel {
+    margin: 5% 5% 1% 5%;/* le doy un margin de 1% para que no ocupe todo el ancho */
+    border-radius: 16px; /* borde redondo */
+    border: 3px solid #1d1d1b; /* borde de color */ 
+}
+
+.bootstrap__img {/* imagenes dentro del carrousel */
+    border-radius: 13px; /* borde redondo */ 
+}
+
+.bootstrap__arrow {/* hago mas grande las flechas de seleccion*/
+    width: 150px;
+    height: 150px; 
+}
+
+/* -----------------MAIN--------------- */
+
+/* -------------ACCESORIOS------------- */
+.main__layout--articulos::-webkit-scrollbar { /* ancho y color del scroll */
+    width: 5px;
+    background-color: darkgrey;
+}
+
+.main__layout--articulos::-webkit-scrollbar-thumb{ /*color interno scroll */
+    background: rgb(65, 63, 63);
+}
+
+.main__layout--articulos{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    background-color: green;
+    margin: 5% 5% 5% 5%;
+    width: 95%;
+    height: 700px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.item__card {/* es el diseño de la tarjeta */
+    display: flex; /* paso todos los articulos a flex */
+    flex-direction: column;/* los paso a vertical */
+    width: 400px;/* ancho */
+    height: 450px;/* alto */
+    border-radius: 16px;/* borde redondo */
+    border: 3px solid #1d1d1b;/* borde de color */
+    margin: 1%; 
+}
+
+.item__cuadro {/* es el tamaño que se va usar para la imagen */
+    width: 100%;/* ocupa el 100% de ancho */
+    height: 250px; /* 250px de alto */
+    border-top-left-radius: 13px 13px;/* hago redondo el borde arriba izquierda para coincidir con el de article */
+    border-top-right-radius: 13px 13px;/* hago redondo el borde arriba derecha para coincidir con el de article */
+}
+
+.item__img{/* imagen dentro de item__cuadro */
+    background-image: url("https://zizihub.com/d62580.jpg"); 
+    background-repeat: no-repeat; 
+    background-size: 100% 100%;
+}
+
+.item__textos {/* son los textos dentro de la tarjeta */
+    text-align: justify;/* centro el texto */
+    line-height: 1.2;/* separo los renglones */
+    margin: 3%;/* separo en todos los lados 1% */
+}
+
+/* -------------ACCESORIOS------------- */
+
+
+/* ----------------FOOTER-------------- */
+footer {
+    background-color: #1d1d1b; /* color de fondo del footer */
+    padding-top: 4%; /* borde interno de top */
+    padding-bottom: 4%;/* borde interno de bot */
+    margin-bottom: 0%;
+}
+
+.footer__bootstrap {
+    font-size: large;
+    color: white;
+    margin-top: 1%; 
+}
+
+.footer__p {
+    font-size: medium;/* le doy un tamaño pequeño */
+    color: white; /* cambio el color del texto */
+    text-align: center; /* centro el texto */
+}
+/* ----------------FOOTER-------------- */
