@@ -17,8 +17,16 @@ class Items {
 function autoProductos (){
     arrayitems.push(new Items(id(),"Cable hdmi",10))
     arrayitems.push(new Items(id(),"Mando pro",30))
-    arrayitems.push(new Items(id(),"zelda breath of the wild",2))
+    arrayitems.push(new Items(id(),"Zelda breath of the wild",2))
     arrayitems.push(new Items(id(),"Mario kart 8",8))
+    arrayitems.push(new Items(id(),"Base dock",1))
+    arrayitems.push(new Items(id(),"Base mando",5))
+    arrayitems.push(new Items(id(),"Adaptador mando gamecube",2))
+    arrayitems.push(new Items(id(),"Mando gamecube",6))
+    arrayitems.push(new Items(id(),"Estuche nintendo switch",4))
+    arrayitems.push(new Items(id(),"Protector pantalla",7))
+    arrayitems.push(new Items(id(),"Cubre sticks mandos",2))
+    arrayitems.push(new Items(id(),"Xenoblade chronicles 3",15))
 }
 
 function opcionDato(dato){
@@ -28,10 +36,13 @@ function opcionDato(dato){
     }else if (dato === 2){
         quitarProducto()
     
+    }else if (dato ===3){
+        BuscarConFilter()
+    
     }else{
-        alert("ingrese Opcion valida")
+        alert("Ingrese opcion valida")
         //le pido de nuevo al usuario la opcion
-        let dato = parseInt(prompt (" Que deseas hacer: \n 1: Agregar producto \n 2: Quitar producto"))
+        let dato = parseInt(prompt (" Que deseas hacer \n 1: Agregar producto \n 2: Quitar producto \n 3: Buscar producto"))
         opcionDato(dato)
     }
 }
@@ -44,7 +55,7 @@ function agregarProducto(){
     arrayitems.push(newProd)//agrego el objeto al array
     console.warn("Array con objeto agregado")
     mostarTabla()
-    alert("se agrego el producto correctamente")
+    alert("Se agrego el producto correctamente")
 }
 
 function quitarProducto(){
@@ -59,7 +70,7 @@ function quitarProducto(){
     }else{
         console.warn("Array con objeto retirado")
         console.table(copiaArray)
-        alert("se quito el producto correctamente")
+        alert("Se quito el producto correctamente")
         arrayitems = copiaArray //igualo el array original a la copia 
     }
 }
@@ -75,13 +86,30 @@ function mostarTabla(){
     console.table(arrayitems)
 }
 
-alert("ingresa a la consola y llama la funcion iniciar()")
+//Buscar usando filter
+function BuscarConFilter() {
+    let nombre = prompt("Ingresa el nombre del producto")
+    nombre = pasarAmayusLaPrimera(nombre) // paso a mayuscula la primer aletra
+    let resultado = arrayitems.filter((item)=> item.nombre.includes(nombre))
+    if(resultado.length ===0){ //si la longitud de la copia es igual al original significa que no encontro el id o que no existe
+        alert("Error ingrese un nombre valido")
+        BuscarConFilter()
+    }else{
+        console.warn("Producto encontrado")
+        console.table(resultado)
+    }
+}
 
 // controlo todo el programa
 function iniciar(){
-    autoProductos() // genero la primera tabla
     mostarTabla() //muestro la tabla primera vez
-    let dato = parseInt(prompt (" Que deseas hacer \n 1: Agregar producto \n 2: Quitar producto")) //mensaje al usuario con opcion
+    let dato = parseInt(prompt (" Que deseas hacer \n 1: Agregar producto \n 2: Quitar producto \n 3: Buscar producto")) //mensaje al usuario con opcion
     opcionDato(dato)//llamo la funcion y le paso la opcion 
 }
+
+//inicia automatico antes de ejecutar manual iniciar()
+alert("Ingresa a la consola y llama la funcion iniciar()")
+autoProductos() // genero la primera tabla una unica vez
+
+
 
