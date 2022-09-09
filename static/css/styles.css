@@ -174,3 +174,27 @@ footer {
     text-align: center; /* centro el texto */
 }
 /* ----------------FOOTER-------------- */
+
+
+
+
+
+
+
+
+/* ----------------tabla test-------------- */
+th{
+    padding: 8px;
+    background-color:#009ee3;
+    color: white;
+    text-align:center;
+}
+
+td{
+    height:30px;
+    padding:8px;
+    text-align:center;
+    background-color:#cccccc;
+}
+
+/* ----------------tabla test-------------- */
