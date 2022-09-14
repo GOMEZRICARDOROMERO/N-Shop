@@ -35,8 +35,10 @@
     
     <main>
         <article>
-            <h1 id="titulo">Productos</h1>
-            <p id="parrafo">Listado de productos disponibles:</p>
+            <h1 class="th1" id="titulo">Items</h1>
+            <div>
+                <input class="buscar" type="search" id="buscaritem" placeholder=" Ingresa nombre del producto a buscar">
+            </div> 
             <table cellpadding="2" class="tabla">
                 <thead>
                     <tr>
@@ -48,11 +50,13 @@
                 <tbody id="tabla">
                     <tr>
                         <td></td>
-                        <td></td>
-                        <td></td>
                     </tr>
                 </tbody>
             </table>
+            <div class="div__button">
+                <button  id="aitems" type="button" class="btn btn-primary btn-lg">Agregar Item</button>
+                <button  id="bitems" type="button" class="btn btn-primary btn-lg ">Borrar Item</button>
+            </div>
         </article>
     </main> 
     
@@ -61,6 +65,8 @@
     <footer> 
     </footer> 
     
-    
+    <!-- javascrip bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <!-- javascrip bootstrap -->
 </body> 
 </html>

@@ -1,5 +1,3 @@
-
-
 //array principal de objetos
 let arrayitems =[] //uso let para poder igualarlo mas adelante
 
@@ -109,9 +107,12 @@ function iniciar(){
     opcionDato(dato)//llamo la funcion y le paso la opcion 
 }
 
+
+
 //inicia automatico antes de ejecutar manual iniciar()
 autoProductos() // genero la primera tabla una unica vez //muestro la tabla primera vez en el html
-alert("Ingresa a la consola y llama la funcion iniciar()")
+
+
 
 
 

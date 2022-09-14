@@ -197,4 +197,24 @@ td{
     background-color:#cccccc;
 }
 
+.div__button{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 1%;
+}
+
+.buscar{
+    width: 100%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+
+.th1{
+    color: white;
+    text-align: center;
+}
+
 /* ----------------tabla test-------------- */
