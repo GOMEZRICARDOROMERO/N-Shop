@@ -22,7 +22,7 @@
     <!-- Css -->
     
     <!-- JS -->
-    <script defer src="../js/dom.js"></script><!-- el dom  para interactuar con js y html-->
+    <script defer src="../js/domcarrito.js"></script><!-- el dom  para interactuar con js y html-->
     <!-- JS -->
 </head>
 
@@ -34,29 +34,24 @@
     
     <main>
         <article>
-            <h1 class="th1" id="titulo">Items</h1>
-            <div>
-                <input class="buscar" type="search" id="buscaritem" placeholder=" Ingresa nombre del producto a buscar">
-            </div> 
+            <h1 class="th1" id="titulo">Carrito</h1>
             <table cellpadding="2" class="tabla">
                 <thead>
                     <tr>
                         <th>ID </th>
                         <th>NOMBRE </th>
-                        <th>STOCK </th>
-                        <th>CARRITO </th>
+                        <th>QUITAR </th>
                     </tr>
                 </thead>
-                <tbody id="tabla">
+                <tbody id="tablacarrito">
                     <tr>
                         <td></td>
                     </tr>
                 </tbody>
             </table>
             <div class="div__button">
-                <button  id="aitems" type="button" class="btn btn-primary btn-lg">Agregar Item</button>
-                <button  id="bitems" type="button" class="btn btn-primary btn-lg ">Borrar Item</button>
-                <a href="carrito.html"> <button id="carrito" type="button" class="btn btn btn btn-success btn-lg "> Carrito </button></a>
+                <button  id="bcarrito" type="button" class="btn btn-primary btn-lg">Limpiar</button>
+                <!-- <button  id="carrito" type="button" class="btn btn btn btn-success btn-lg "> Pagar </button> -->
             </div>
         </article>
     </main> 
