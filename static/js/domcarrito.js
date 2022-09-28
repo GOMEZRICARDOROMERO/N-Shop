@@ -1,6 +1,6 @@
 //array
 let carrito = []
-carrito = JSON.parse(localStorage.getItem("carrito")) //traigo los items del storage
+//carrito = JSON.parse(localStorage.getItem("carrito")) //traigo los items del storage
 let carritovacio = []
 let copiaArray =[]
 
@@ -9,11 +9,19 @@ let copiaArray =[]
 const tabla = document.querySelector("#tablacarrito")
 const limpiar = document.querySelector("#bcarrito")
 
+//funcion para validar carrito
+const validarCarrito = () =>{
+    //tabla.innerHTML = " " /* limpia la tabla para que no aparezca un cuadro vacio */
+    carrito = JSON.parse(localStorage.getItem("carrito"))//traigo los items del storage
+    carrito === null ? alert("El carrito esta vacio") : cargarCarrito(carrito)
+}
+
+validarCarrito()
 
 //carga el carrito y lo muestra 
 function cargarCarrito(array){
     let fila = " "
-    tabla.innerHTML = fila /* primero limpia la anterior */
+    tabla.innerHTML = fila /* primero limpia la tabla anterior */
     array.forEach(item => {
         fila = `<tr>
                     <td>${item.id}</td>
@@ -22,16 +30,19 @@ function cargarCarrito(array){
                 </tr>`
     tabla.innerHTML +=fila
     });
+    accionButtonQuitar(carrito)
 }
 
 //llamo la funcion para que se cargue
-cargarCarrito(carrito)
+//cargarCarrito(carrito)
 
 //cuando se presiona le boton borra todo el storage y llama de nuevo la funcion cargar carrito para actualizar
 limpiar.addEventListener("click", ()=>{
     localStorage.clear()
-    cargarCarrito(carritovacio)//cargo un array vacio para que no me de error
-    alert("Se limpio el carrito")
+    //cargarCarrito(carritovacio)//cargo un array vacio para que no me de error
+    //alert("Se limpio el carrito")
+    tabla.innerHTML = " " // limpio el html
+    validarCarrito()
 })
 
 //funcion para conectarse con cada boton y generar su accion
@@ -42,7 +53,7 @@ function accionButtonQuitar (array) {
     })
 }
 
-accionButtonQuitar(carrito)
+//accionButtonQuitar(carrito)
 
 
 function quitar(id){
