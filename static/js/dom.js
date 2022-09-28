@@ -143,7 +143,7 @@ function agregarItemAlCarrito(id) {
 //funcion cargar carrito trae los datos cargados esto se usa para no perder los que se agregaron antes
 function cargarCarrito() {
     if (localStorage.getItem("carrito")) {
-        carrito = JSON.parse(localStorage.getItem("carrito"))
+        carrito = JSON.parse(localStorage.getItem("carrito")) || []
     }
 }
 
