@@ -133,6 +133,7 @@ accionButtonAdd (arrayitems) //llamo para que se inicie
 
 //funcion para agregar el producto al carrito por id
 function agregarItemAlCarrito(id) {
+    cargarCarrito()
     const item = arrayitems.find(item => item.id == id)//busco el item del array y lo guardo en la const item
         carrito.push(item)//agrego ese item al array de carryto
         localStorage.setItem("carrito", JSON.stringify(carrito)) //agrego al localstorage
