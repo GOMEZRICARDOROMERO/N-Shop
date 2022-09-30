@@ -41,6 +41,7 @@ const tabla = document.getElementById("tabla")
 const agregarItems = document.querySelector("#aitems")
 const borrarItems = document.querySelector("#bitems")
 const btncarrito = document.querySelector("#carrito")
+//btncarrito.disabled=true //deshabilito el boton para no poder ir al carrito sin items
 
 //me conecto al buscar
 const buscarItem = document.querySelector("#buscaritem")
@@ -98,7 +99,7 @@ function agregarProducto(){
     arrayitems.push(newProd)//agrego el objeto al array
     console.warn("Array con objeto agregado")
     agregarProductosAlHtml(arrayitems)
-    alert("Se agrego el producto correctamente")
+    mensajeToast("Se agrego el producto correctamente", gradienteverde)
     accionButtonAdd (arrayitems) // lo llamo de nuevo para que el nuevo item funcione
 }
 
@@ -108,13 +109,13 @@ function quitarProducto(){
     let id = parseInt(prompt("Ingrese el id del producto")) //tomo el id 
     let copiaArray = arrayitems.filter((item) => item.id !==id) //busco el id en el array y hago una copia sin el objeto
     if(copiaArray.length === arrayitems.length){ //si la longitud de la copia es igual al original significa que no encontro el id o que no existe
-        alert("Error ingrese un id valido")
-        quitarProducto()
+        mensajeToast("Error ingrese un id valido", gradienterojo)
+        //quitarProducto()
     }else{
         console.warn("Array con objeto retirado")
         arrayitems = copiaArray //igualo el array original a la copia 
         agregarProductosAlHtml(arrayitems)
-        alert("Se quito el producto correctamente")
+        mensajeToast("Se quito el producto correctamente",gradienteverde)
         accionButtonAdd (arrayitems)
     }
 }
@@ -137,7 +138,7 @@ function agregarItemAlCarrito(id) {
     const item = arrayitems.find(item => item.id == id)//busco el item del array y lo guardo en la const item
         carrito.push(item)//agrego ese item al array de carryto
         localStorage.setItem("carrito", JSON.stringify(carrito)) //agrego al localstorage
-        alert("Se Agrego "+`${item.nombre}`+" al carrito 🛒")
+        mensajeToast("Se Agrego "+`${item.nombre}`+" al carrito 🛒",gradienteazul)
 }
 
 //funcion cargar carrito trae los datos cargados esto se usa para no perder los que se agregaron antes
@@ -148,3 +149,22 @@ function cargarCarrito() {
 }
 
 cargarCarrito()
+
+let gradienteazul = "radial-gradient(circle, rgba(0,14,250,1) 0%, rgba(0,14,250,1) 100%)"
+let gradienterojo = "radial-gradient(circle, rgba(250,0,0,1) 0%, rgba(250,0,0,1) 100%)"
+let gradienteverde = "radial-gradient(circle, rgba(0,250,66,1) 0%, rgba(0,250,66,1) 100%)"
+
+//mensaje toast
+function mensajeToast(mensaje, background) {
+    Toastify({
+        text: mensaje, //es el texto en el toast
+        duration: 3000, // la duracion de la ventana
+        close: false, //mostrar o no opcion de cerrar
+        gravity: "top", // `top` or `bottom` 
+        position: "right", // `left`, `center` or `rightright`
+        stopOnFocus: false, // se detiene el tiempo si se pone el mouse sobre el toast
+        style: { //son los estilos
+                background: background,
+        }
+    }).showToast();
+}
