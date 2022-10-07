@@ -46,6 +46,7 @@ limpiar.addEventListener("click", ()=>{
     //cargarCarrito(carritovacio)//cargo un array vacio para que no me de error
     //alert("Se limpio el carrito")
     tabla.innerHTML = " " // limpio el html
+    window.location.reload() // recargo la pagina para evitar errores
     validarCarrito()
 })
 

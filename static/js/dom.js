@@ -1,9 +1,12 @@
+//URL
+const url ="../json/dbitems.json"
+
 //array principal de objetos
 let arrayitems =[] //uso let para poder igualarlo mas adelante
 let carrito =[]
 
 //id para los productos
-const id = ()=> parseInt(Math.random() * 100000) //creo un ID numérico dinámico
+const id = ()=> parseInt(Math.random() * 10000) //creo un ID numérico dinámico
 
 //constructor
 class Items {
@@ -15,7 +18,7 @@ class Items {
 }
 
 //llenado automatico de productos
-function autoProductos (){
+/* function autoProductos (){
     arrayitems.push(new Items(id(),"Cable hdmi",10))
     arrayitems.push(new Items(id(),"Mando pro",30))
     arrayitems.push(new Items(id(),"Zelda breath of the wild",2))
@@ -30,7 +33,7 @@ function autoProductos (){
     arrayitems.push(new Items(id(),"Xenoblade chronicles 3",15))
 }
 
-autoProductos()
+autoProductos() */
 
 //me conecto con los elemtnos de test.html lineas 38 y 39
 const titulo = document.getElementById("titulo") // me conecto con el elemento con id titulo 
@@ -46,6 +49,26 @@ const btncarrito = document.querySelector("#carrito")
 //me conecto al buscar
 const buscarItem = document.querySelector("#buscaritem")
 const inputFiltrar = document.querySelector("input") //me conecto a la barra input
+
+//llenado de array por json usando fetch()
+const cargarContenidoPorJson = async () =>{
+    //toda la estructura debe ir por try/catch/finally
+    try {
+        //llamo a fetch y le paso la url que defini apuntando al json y guardo la respuesta en respuesta
+        const respuesta = await fetch(url) // como es un proceso async debemos usar await 
+        //console.table(respuesta) // esto es para probar en la consola ojo usar live server
+        const data = await respuesta.json() //convierto respuesta en json y lo guardo en data
+        //console.table(data) //para probar
+        arrayitems = data // igualo mi array a data
+    } catch (error) {
+        mensajeToast("Erro verifique la URL del json",gradienterojo)//muestro el error
+    } finally {
+        agregarProductosAlHtml(arrayitems)//cargo en el html
+        accionButtonAdd(arrayitems)// hago funcionar los botones
+    }
+}
+
+cargarContenidoPorJson() // llamo la funcion para que se ejecute automartica
 
 function filtrarProductos() { //FILTRAR PRODUCTOS EN LA TABLA INGRESANDO PARTE DEL NOMBRE
     inputFiltrar.value = inputFiltrar.value
@@ -89,7 +112,7 @@ function agregarProductosAlHtml(array){
     });
 }
 
-agregarProductosAlHtml(arrayitems)
+//agregarProductosAlHtml(arrayitems)
 
 function agregarProducto(){
     let nombre = prompt("Ingresa el nombre del producto:") //pide dato al usuario
