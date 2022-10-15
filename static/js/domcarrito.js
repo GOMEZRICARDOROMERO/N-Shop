@@ -4,6 +4,7 @@ let carrito = []
 let carritovacio = []
 let copiaArray =[]
 
+//colores de los mensajes
 let gradienteazul = "radial-gradient(circle, rgba(0,14,250,1) 0%, rgba(0,14,250,1) 100%)"
 let gradienterojo = "radial-gradient(circle, rgba(250,0,0,1) 0%, rgba(250,0,0,1) 100%)"
 let gradienteverde = "radial-gradient(circle, rgba(0,250,66,1) 0%, rgba(0,250,66,1) 100%)"
@@ -12,6 +13,7 @@ let gradienteverde = "radial-gradient(circle, rgba(0,250,66,1) 0%, rgba(0,250,66
 //me conecto
 const tabla = document.querySelector("#tablacarrito")
 const limpiar = document.querySelector("#bcarrito")
+const pagar =document.querySelector("#pagar")
 
 //funcion para validar carrito
 const validarCarrito = () =>{
@@ -48,6 +50,23 @@ limpiar.addEventListener("click", ()=>{
     tabla.innerHTML = " " // limpio el html
     window.location.reload() // recargo la pagina para evitar errores
     validarCarrito()
+})
+
+//cuando se presiona pagar
+pagar.addEventListener("click", ()=>{
+    if (carrito === null) { //validacion por si esta vacio y le dan pagar
+        mensajeToast("Error el carrito esta vacio",gradienterojo)
+    }else{
+        localStorage.clear() //vacio el storage
+        mensajeToast("¡Muchas gracias por su compra!",gradienteverde) //le agradezco al cliente
+        tabla.innerHTML = " "//limpio el html
+        //necesito 2 segundos para que se pueda leer el mensaje 
+        setTimeout(() => {
+            carrito.length = 0 //limpio el carrito
+            window.location.href = "test.html" //reenvio a la pagina inicial
+        }, 2000);
+    }
+    
 })
 
 //funcion para conectarse con cada boton y generar su accion
